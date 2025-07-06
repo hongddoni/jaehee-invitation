@@ -1,0 +1,124 @@
+.buttonWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    .weddingInfo {
+        font-family: "Italiana", sans-serif;
+        font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .text {
+            color: #676767;
+            font-size: 15px;
+            font-family: "Italiana", sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 16px;
+            font-family: 'MaruBuri';
+        }
+
+        .hole {
+            font-size: 16px;
+            font-family: 'MaruBuri';
+        }
+
+        .location {
+            margin-top: 10px;
+            font-size: 12px;
+            font-family: 'MaruBuri';
+        }
+    }
+
+    .map {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .mapName {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: 'MaruBuriLight';
+            gap: 5px;
+            line-height: 1.8;
+    
+            .transport {
+                display: flex;
+                width: 70vw;
+                padding-left: 5vw;
+                gap: 10px;
+    
+                .left {
+                    display: flex;
+                    font-family: 'MaruBuriBold';
+                    color: #676767;
+                    min-width: fit-content
+                }
+    
+                .right {
+                    font-family: 'MaruBuri';
+                    color: #676767;
+                    white-space: pre-wrap;
+                }
+            }
+        }
+
+        .mapImage {
+            margin: 20px 0;
+            width: 70vw;
+        }
+    }
+
+
+}
+
+.buttons { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 30px;
+
+    > hr {
+        width: 1px;
+        height: 20px;
+        border-color:rgba(103,103,103, 0.2);
+        border-radius:5px;
+    }
+}
+
+.br {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    font-size: 14px;
+    width: 70vw;
+    margin: 3vh 0;
+    font-family: 'MaruBuri';
+    border-bottom: 1px solid rgba(103,103,103, 0.2);
+}
+.dividerWrap {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    font-size: 14px;
+    width: 70vw;
+    margin: 3vh 0;
+    font-family: 'MaruBuri';
+    border-bottom: 1px solid rgba(103,103,103, 0.2);
+}
+
+
+@media (max-width: 768px) {
+    .mapName {
+        font-size: 12px;
+    }
+}

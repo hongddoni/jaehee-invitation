@@ -1,0 +1,162 @@
+.mentWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .ring {
+        font-size: 80px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .ringText {
+            font-size: 20px;
+            font-family: 'MaruBuriBold';
+            color: #676767;
+            margin-top: 10px;
+        }
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+        
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    .ment {
+        text-align: center;
+        font-family: 'MaruBuriLight';
+        font-size: 25px;
+        line-height: 2;
+        white-space: pre-line;
+        padding :0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #676767;
+    }
+
+    .imageWrap {
+        height: max-content;
+        
+        .middleImage {
+            position: absolute;
+            border-radius: 10px;
+            object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+            width: 100vw;
+            left: 0
+        }
+    }
+       
+    .date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        white-space: pre-line;
+        font-size: 25px;
+        font-family: 'MaruBuriBold';
+        color: #676767;
+        margin: 10px 0;
+    }
+
+    .mainImageWrap {
+        width: 50%;
+        border-radius: 50% 50% 8px 8px;
+        overflow: hidden;
+        aspect-ratio: 1 / 1.08;
+        position: relative;
+    }
+
+    .mainImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nameWrap {
+        margin: 20px 0;
+        display:flex;
+        align-items: center;
+        gap: 30px;
+        color: #676767;
+
+
+        .slash {
+            width: 1px;
+            height: 40px;
+            transform: rotate(20deg);
+            background-color: #676767;
+            opacity: 0.2;
+        }
+
+        .nameItem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .bold {
+                color: #000;
+            }
+
+            .name {
+                font-family: 'MaruBuri';
+                font-size: 14px;
+            }
+
+            .parent {
+                display: flex;
+                font-family: 'MaruBuriLight';
+                align-items: center;
+                font-size: 12px;
+
+                .flower {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+
+    .br {
+        display: flex;
+        width: 70vw;
+        height: 1px;
+        margin: 3vh 0;
+        background-color: #676767;
+        opacity: 0.2;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .mentWrap {
+        .ring {
+            font-size: 25px;
+        }
+
+        .ment {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .date {
+            font-size: 14.5px;
+        }
+
+        .nameWrap {
+            font-size: 14.5px;
+        }
+    }
+
+} 

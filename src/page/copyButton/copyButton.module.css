@@ -1,0 +1,13 @@
+.button {
+    display: flex;
+    gap: 10px;
+    font-family: 'MaruBuri';
+    color: #676767;
+    font-size: 12px;
+    align-items: center;
+    justify-content: space-between;
+    width: 70vw;
+    height: 32px;
+    border-radius: 4px;
+    padding: 12px;
+}
