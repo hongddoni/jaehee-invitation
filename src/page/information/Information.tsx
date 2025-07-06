@@ -6,6 +6,7 @@ import { Accordion } from "../acordian/Accordian";
 export const Information = () => {
 	return (
 		<div className={s.information}>
+			<hr className={s.hr}/>
 			<div className={s.title}>
 				<span className={s.bold}>신랑</span> &{" "}
 				<span className={s.bold}>신부</span>에게 마음 전하기
@@ -42,6 +43,10 @@ export const Information = () => {
 						</CopyButton>
 					</div>
 				</Accordion>
+			</div>
+			<div className={s.rejectMessage}>
+				{`화환은 정중히 사양합니다.
+축하해 주시는 마음만 감사히 받겠습니다.`}
 			</div>
 		</div>
 	);

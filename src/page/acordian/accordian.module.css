@@ -1,4 +1,9 @@
 .accordian {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     .button {
         display: flex;
         align-items: center;
@@ -7,13 +12,14 @@
         border-radius: 4px;
         padding: 12px;
         cursor: pointer;
-        width: 75vw;
+        width: 70vw;
         justify-content: space-between;
 
         .title {
             color: #676767;
             display: flex;
             gap: 5px;
+            font-size:12px;
 
             .titleText {
                 font-family: 'MaruBuriBold';

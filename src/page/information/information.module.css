@@ -7,6 +7,14 @@
     flex-direction: column;
     align-items: center;
 
+    .hr {
+        width: 70vw;
+        height: 1px;
+        background-color: #676767;
+        opacity: 0.2;
+        margin-bottom: 40px;
+    }
+
     .title {
         font-size: 16px;
         .bold {
@@ -15,12 +23,14 @@
     }
 
     .description {
-        font-size: 12px;
+        font-size: 10px;
     }
     .accordians {
         margin-top: 20px;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 10px;
 
         .accordianContent {
@@ -29,7 +39,14 @@
         }
     }
 
-
+    .rejectMessage {
+        margin-top: 40px;
+        font-size: 12px;
+        white-space: pre-wrap;
+        text-align: center;
+        font-family: 'MaruBuri';
+        color: #676767;
+    }
 }
 
 .br {

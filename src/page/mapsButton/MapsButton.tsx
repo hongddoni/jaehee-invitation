@@ -36,7 +36,7 @@ export const MapsButton = () => {
 					</div>
 
 					<div className={s.transport}>
-						<span className={s.left}>셔틀 버스</span>
+						<span className={s.left}>셔틀버스</span>
 						<span className={s.right}>
 							2호선 삼성역 1번 출구 셔틀버스 운행
 							<br />
