@@ -52,10 +52,7 @@ export const MapsButton = () => {
 					<div className={s.transport}>
 						<span className={s.left}>자가용</span>
 						<span className={s.right}>
-							{`강남경찰서사거리 강남운전면허시험장
-방면 30M 직진 그린드힐컨벤션 주차장
-* 3시간 무료
-							`}
+							그린드힐컨벤션 주차장(3시간 무료)
 						</span>
 					</div>
 				</div>
