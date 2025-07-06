@@ -1,5 +1,5 @@
 import s from "./bottomLayer.module.css";
-import headline from "../../assets/images/photo-13.webp";
+import headline from "../../assets/images/headline.webp";
 
 interface Props {
 	children?: React.ReactNode;

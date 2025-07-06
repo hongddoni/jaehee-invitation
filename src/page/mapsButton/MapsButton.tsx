@@ -5,13 +5,12 @@ import s from "./mapButtons.module.css";
 import { LinkButton } from "./linkButton/LinkButton";
 import { AnimateText } from "../animateText/AnimateText";
 
-const WEDDING_HOLE_NAVER =
-	"https://map.naver.com/p/entry/place/12077860?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202506262326&locale=ko&svcName=map_pcv5L";
+const WEDDING_HOLE_NAVER = "https://naver.me/xLsCbfGO";
 
 const WEDDING_HOLE_GOOGLE =
-	"https://www.google.com/maps/place/%EB%8D%94+%ED%85%8C%EB%9D%BC%EC%8A%A4+%EC%9B%A8%EB%94%A9+%26+%ED%8C%8C%ED%8B%B0/data=!3m1!4b1!4m6!3m5!1s0x357c9ac9f99b176b:0xda0eeb1429a7f5e!8m2!3d37.6443318!4d126.7876533!16s%2Fg%2F1thw4nwj?entry=ttu&g_ep=EgoyMDI1MDYyMy4yIKXMDSoASAFQAw%3D%3D";
+	"https://maps.app.goo.gl/X24X6P1qAJvw1dpi9?g_st=ipc";
 
-const WEDDING_HOLE_TMAP = "https://tmap.life/2cd44420";
+const WEDDING_HOLE_TMAP = "https://tmap.life/1a06db15";
 
 export const MapsButton = () => {
 	return (
@@ -20,10 +19,13 @@ export const MapsButton = () => {
 				<AnimateText className={s.text}>
 					Wedding Information
 				</AnimateText>
-				<div className={s.date}>25. 10. 11(토) 오후 2시 30분</div>
+				<div className={s.date}>25년 10월 11일(토) 14시 30분</div>
 				<div className={s.hole}>그랜드힐 컨벤션 2층 사브리나홀</div>
 				<span className={s.location}>
 					서울 강남구 역삼로 607 그랜드힐 컨벤션
+				</span>
+				<span className={s.tel}>
+					<a href={"tel:02-6964-7889"}>Tel. 02-6964-7889</a>
 				</span>
 			</div>
 			<div className={s.map}>
@@ -31,16 +33,29 @@ export const MapsButton = () => {
 					<div className={s.transport}>
 						<span className={s.left}>지하철</span>
 						<span className={s.right}>
-							2호선 삼성역 2번 출구 도보 10분
+							{`2호선 삼성역 1번출구 - 셔틀버스 운행
+2호선 삼성역 2번출구 - 도보 5분`}
 						</span>
 					</div>
+					<br />
+					<div className={s.transport}>
+						<span className={s.left}>버스</span>
+						<span className={s.right}>
+							{`간선(파란버스)
+143, 146, 341, 360, 363, 401
+지선(초록버스)
+2413, 3411, 3422, 4318, 4419, 917, 1-3`}
+						</span>
+					</div>
+					<br />
 
 					<div className={s.transport}>
-						<span className={s.left}>셔틀버스</span>
+						<span className={s.left}>자가용</span>
 						<span className={s.right}>
-							2호선 삼성역 1번 출구 셔틀버스 운행
-							<br />
-							(예식에 한하여 상시 운행)
+							{`강남경찰서사거리 강남운전면허시험장
+방면 30M 직진 그린드힐컨벤션 주차장
+* 3시간 무료
+							`}
 						</span>
 					</div>
 				</div>

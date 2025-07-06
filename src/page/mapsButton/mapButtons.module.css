@@ -37,6 +37,17 @@
             font-family: 'MaruBuri';
             color: #676767;
         }
+
+        .tel {
+            font-size: 10px;
+            font-family: 'MaruBuri';
+            color: #676767;
+
+            > a {
+                color: #676767;
+                text-decoration: none;
+            }
+        }
     }
 
     .map {

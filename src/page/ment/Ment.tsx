@@ -67,14 +67,14 @@ export const Ment = () => {
 			<div className={s.nameWrap}>
 				<div className={s.nameItem}>
 					<span className={s.name}>
-						신랑 <span className={s.bold}>JUNGJAE</span>
+						신랑 <span className={s.bold}>심정재</span>
 					</span>
 					<span className={s.parent}>심창섭, 황희자의 차남 </span>
 				</div>
 				<div className={s.slash} />
 				<div className={s.nameItem}>
 					<span className={s.name}>
-						신부 <span className={s.bold}>JAEHEE</span>
+						신부 <span className={s.bold}>안재희</span>
 					</span>
 					<span className={s.parent}>
 						<img src={flower} alt="flower" className={s.flower} />
