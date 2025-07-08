@@ -55,6 +55,10 @@
             width: 100vw;
             left: 0
         }
+
+        .film {
+            display: none;
+        }
     }
        
     .date {
@@ -157,6 +161,15 @@
         .nameWrap {
             font-size: 14.5px;
         }
-    }
 
+        .imageWrap {
+            > .middleImage {
+                display: none;
+            }
+
+            .film {
+                display: flex;
+            }
+        }
+    }
 } 

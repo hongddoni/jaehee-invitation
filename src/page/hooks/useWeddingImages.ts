@@ -43,7 +43,36 @@ export const useWeddingImages = () => {
 		image20,
 	];
 
+	const filmImages = [
+		image1,
+		image2,
+		image3,
+		image5,
+		image11,
+
+		image6,
+		image8,
+		image10,
+
+		image4,
+		image15,
+		image17,
+
+		image7,
+
+		image12,
+		image13,
+		image14,
+		image16,
+		image9,
+
+		image18,
+		image19,
+		image20,
+	];
+
 	return {
 		images,
+		filmImages,
 	};
 };

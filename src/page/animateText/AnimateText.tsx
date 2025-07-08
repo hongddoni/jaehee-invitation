@@ -1,9 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import {
+	useEffect,
+	useRef,
+	useState,
+	isValidElement,
+	cloneElement,
+} from "react";
+import type { ReactNode, ReactElement } from "react";
 import s from "./animateText.module.css";
 import classNames from "classnames";
 
 interface Props {
-	children: string;
+	children: ReactNode;
 	delay?: number;
 	type?: "fadeUp" | "typewriter";
 	className?: string;
@@ -13,8 +20,103 @@ export const AnimateText = (props: Props) => {
 	const { children, delay = 0.05, type = "fadeUp", className } = props;
 	const [isVisible, setIsVisible] = useState(false);
 	const textRef = useRef<HTMLParagraphElement>(null);
+	const [charIndex, setCharIndex] = useState(0);
 
-	const arrText = Array.from(children);
+	// ReactNode를 재귀적으로 탐색하여 애니메이션을 적용하는 함수
+	const processNode = (
+		node: ReactNode,
+		currentIndex: { value: number }
+	): ReactNode => {
+		if (typeof node === "string") {
+			// 문자열인 경우 각 문자마다 애니메이션 적용
+			return Array.from(node).map((char, index) => {
+				const globalIndex = currentIndex.value;
+				currentIndex.value++;
+
+				return (
+					<span
+						className={`${s.chunk} ${isVisible ? s[type] : ""}`}
+						key={`char-${globalIndex}`}
+						style={{
+							animationDelay: isVisible
+								? `${globalIndex * delay}s`
+								: "0s",
+						}}
+					>
+						{char === " " ? "\u00A0" : char}
+					</span>
+				);
+			});
+		}
+
+		if (typeof node === "number") {
+			// 숫자인 경우 문자열로 변환하여 처리
+			return processNode(node.toString(), currentIndex);
+		}
+
+		if (isValidElement(node)) {
+			// React Element인 경우 children을 재귀적으로 처리
+			const element = node as ReactElement<any>;
+			const elementProps = element.props || {};
+			const processedChildren = processChildren(
+				elementProps.children,
+				currentIndex
+			);
+
+			return cloneElement(element, {
+				...(elementProps as object),
+				key: `element-${currentIndex.value}`,
+				children: processedChildren,
+			});
+		}
+
+		if (Array.isArray(node)) {
+			// 배열인 경우 각 요소를 재귀적으로 처리
+			return node.map((child, index) => processNode(child, currentIndex));
+		}
+
+		// 그 외의 경우 (null, undefined, boolean 등) 그대로 반환
+		return node;
+	};
+
+	// children을 재귀적으로 처리하는 함수
+	const processChildren = (
+		children: ReactNode,
+		currentIndex: { value: number }
+	): ReactNode => {
+		if (Array.isArray(children)) {
+			return children.map((child, index) =>
+				processNode(child, currentIndex)
+			);
+		}
+		return processNode(children, currentIndex);
+	};
+
+	// 전체 텍스트에서 문자 개수를 계산하는 함수
+	const countTotalChars = (node: ReactNode): number => {
+		if (typeof node === "string") {
+			return node.length;
+		}
+
+		if (typeof node === "number") {
+			return node.toString().length;
+		}
+
+		if (isValidElement(node)) {
+			const element = node as ReactElement<any>;
+			const elementProps = element.props || {};
+			return countTotalChars(elementProps.children);
+		}
+
+		if (Array.isArray(node)) {
+			return node.reduce(
+				(total, child) => total + countTotalChars(child),
+				0
+			);
+		}
+
+		return 0;
+	};
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -38,19 +140,15 @@ export const AnimateText = (props: Props) => {
 		return () => observer.disconnect();
 	}, []);
 
+	// 애니메이션이 적용된 콘텐츠 생성
+	const animatedContent = (() => {
+		const indexCounter = { value: 0 };
+		return processChildren(children, indexCounter);
+	})();
+
 	return (
 		<p className={classNames(s.text, className)} ref={textRef}>
-			{arrText.map((text, index) => (
-				<span
-					className={`${s.chunk} ${isVisible ? s[type] : ""}`}
-					key={index}
-					style={{
-						animationDelay: isVisible ? `${index * delay}s` : "0s",
-					}}
-				>
-					{text === " " ? "\u00A0" : text}
-				</span>
-			))}
+			{animatedContent}
 		</p>
 	);
 };

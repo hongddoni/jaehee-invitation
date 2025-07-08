@@ -2,15 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import s from "./ment.module.css";
 import middle1 from "../../assets/images/middle/middle-1.png";
 import flower from "../../assets/images/flower.png";
+import { Film } from "../film/Film";
+import { AnimateText } from "../animateText/AnimateText";
 
 export const Ment = () => {
 	const ref = useRef<HTMLImageElement>(null);
 	const [height, setHeight] = useState(0);
 	const [retryCount, setRetryCount] = useState(0);
 	const maxRetries = 3;
+	const isMobile = window.innerWidth < 768;
 
 	const handleImageLoad = () => {
-		if (ref.current) {
+		if (ref.current && !isMobile) {
+			console.log("mobile?");
 			setHeight(ref.current.clientHeight);
 		}
 	};
@@ -38,13 +42,12 @@ export const Ment = () => {
 	const ment = (
 		<>
 			<br />
-			"사랑은 서로를 바라보는 것이 아니라
-			<br />
-			<span>
+			<AnimateText type="typewriter">
+				"사랑은 서로를 바라보는 것이 아니라
+				<br />
 				함께 <strong>같은 방향을 바라보는 것</strong>이다."
-			</span>
-			『 어린 왕자 』
-			<br />
+				<br /> 『 어린 왕자 』
+			</AnimateText>
 			<br />
 			<br />
 			서로를 바라보던 두 사람이
@@ -83,15 +86,21 @@ export const Ment = () => {
 				</div>
 				{/* <div className={s.br} /> */}
 			</div>
-			<div className={s.imageWrap} style={{ height }}>
-				<img
-					src={middle1}
-					alt="middle"
-					className={s.middleImage}
-					ref={ref}
-					onLoad={handleImageLoad}
-					onError={handleImageError}
-				/>
+			<div
+				className={s.imageWrap}
+				style={{ height: isMobile ? "35vh" : height }}
+			>
+				{!isMobile && (
+					<img
+						src={middle1}
+						alt="middle"
+						className={s.middleImage}
+						ref={ref}
+						onLoad={handleImageLoad}
+						onError={handleImageError}
+					/>
+				)}
+				{isMobile && <Film duration={3000} targetIndex={9} />}
 			</div>
 		</div>
 	);

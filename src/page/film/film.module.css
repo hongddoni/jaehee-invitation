@@ -1,0 +1,53 @@
+.film {
+    position: absolute;
+    display: flex;
+    background-color: #2b2727;
+    width: calc(100% + 10vw);
+    height: max-content;
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    padding: 3vh 0;
+    transform: rotate(-7deg);
+    left: -20px;
+
+    .topText {
+        font-size: 10px;
+        font-weight: 400;
+    }
+
+    .imagesWrap {
+        display: flex;
+        gap: 2vw;
+        height: max-content;
+        overflow: hidden;
+        position: relative;
+
+        .imageItem {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30vw;
+            gap: 5px;
+
+            .topText, .bottomText {
+                font-size: 7px;
+            }
+            
+
+            > img {
+                object-fit: cover;
+
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+    }
+
+    .bottomText {
+        font-size: 10px;
+        transform: rotate(180deg);
+    }
+}

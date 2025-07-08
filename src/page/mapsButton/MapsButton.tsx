@@ -3,7 +3,6 @@ import google from "../../assets/maps/google.png";
 import tMap from "../../assets/maps/tmap.svg";
 import s from "./mapButtons.module.css";
 import { LinkButton } from "./linkButton/LinkButton";
-import { AnimateText } from "../animateText/AnimateText";
 
 const WEDDING_HOLE_NAVER = "https://naver.me/xLsCbfGO";
 
@@ -16,9 +15,7 @@ export const MapsButton = () => {
 	return (
 		<div className={s.buttonWrap}>
 			<div className={s.weddingInfo}>
-				<AnimateText className={s.text}>
-					Wedding Information
-				</AnimateText>
+				<span className={s.text}>Wedding Information</span>
 				<div className={s.date}>25년 10월 11일(토) 14시 30분</div>
 				<div className={s.hole}>그랜드힐 컨벤션 2층 사브리나홀</div>
 				<span className={s.location}>
