@@ -20,7 +20,6 @@ export const AnimateText = (props: Props) => {
 	const { children, delay = 0.05, type = "fadeUp", className } = props;
 	const [isVisible, setIsVisible] = useState(false);
 	const textRef = useRef<HTMLParagraphElement>(null);
-	const [charIndex, setCharIndex] = useState(0);
 
 	// ReactNode를 재귀적으로 탐색하여 애니메이션을 적용하는 함수
 	const processNode = (
@@ -29,7 +28,7 @@ export const AnimateText = (props: Props) => {
 	): ReactNode => {
 		if (typeof node === "string") {
 			// 문자열인 경우 각 문자마다 애니메이션 적용
-			return Array.from(node).map((char, index) => {
+			return Array.from(node).map((char, _index) => {
 				const globalIndex = currentIndex.value;
 				currentIndex.value++;
 
@@ -72,7 +71,9 @@ export const AnimateText = (props: Props) => {
 
 		if (Array.isArray(node)) {
 			// 배열인 경우 각 요소를 재귀적으로 처리
-			return node.map((child, index) => processNode(child, currentIndex));
+			return node.map((child, _index) =>
+				processNode(child, currentIndex)
+			);
 		}
 
 		// 그 외의 경우 (null, undefined, boolean 등) 그대로 반환
@@ -85,7 +86,7 @@ export const AnimateText = (props: Props) => {
 		currentIndex: { value: number }
 	): ReactNode => {
 		if (Array.isArray(children)) {
-			return children.map((child, index) =>
+			return children.map((child, _index) =>
 				processNode(child, currentIndex)
 			);
 		}

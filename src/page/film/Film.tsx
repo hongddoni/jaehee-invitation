@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const Film = forwardRef<HTMLDivElement, Props>(
-	({ targetIndex, duration = 1000, className }, ref) => {
+	({ targetIndex, duration = 1000, className }, _ref) => {
 		const { filmImages } = useWeddingImages();
 		const imageListRef = useRef<HTMLDivElement>(null);
 		const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
