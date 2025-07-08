@@ -88,7 +88,7 @@ export const Ment = () => {
 			</div>
 			<div
 				className={s.imageWrap}
-				style={{ height: isMobile ? "35vh" : height }}
+				style={{ height: isMobile ? "40vh" : height }}
 			>
 				{!isMobile && (
 					<img
