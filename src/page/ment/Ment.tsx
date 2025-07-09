@@ -4,6 +4,7 @@ import middle1 from "../../assets/images/middle/middle-1.png";
 import flower from "../../assets/images/flower.png";
 import { Film } from "../film/Film";
 import { AnimateText } from "../animateText/AnimateText";
+import classNames from "classnames";
 
 export const Ment = () => {
 	const ref = useRef<HTMLImageElement>(null);
@@ -11,6 +12,16 @@ export const Ment = () => {
 	const [retryCount, setRetryCount] = useState(0);
 	const maxRetries = 3;
 	const isMobile = window.innerWidth < 768;
+	const [isCoupleClicked, setIsCoupleClicked] = useState(false);
+	const [shouldRender, setShouldRender] = useState(false);
+
+	useEffect(() => {
+		if (isCoupleClicked) {
+			setShouldRender(true);
+		} else {
+			setTimeout(() => setShouldRender(false), 500);
+		}
+	}, [isCoupleClicked]);
 
 	const handleImageLoad = () => {
 		if (ref.current && !isMobile) {
@@ -65,7 +76,23 @@ export const Ment = () => {
 	return (
 		<div className={s.mentWrap}>
 			<p className={s.ment}>{ment}</p>
-			<div className={s.ring}>🤵🏻👰🏻‍♀️</div>
+			<button
+				className={s.couple}
+				onClick={() => setIsCoupleClicked(!isCoupleClicked)}
+			>
+				🤵🏻
+				{shouldRender && (
+					<span
+						className={classNames(
+							s.heart,
+							isCoupleClicked ? s.heartFadeIn : s.heartFadeOut
+						)}
+					>
+						❤️
+					</span>
+				)}
+				👰🏻‍♀️
+			</button>
 
 			<div className={s.nameWrap}>
 				<div className={s.nameItem}>
