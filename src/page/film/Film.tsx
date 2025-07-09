@@ -137,8 +137,36 @@ export const Film = forwardRef<HTMLDivElement, Props>(
 			}
 		}, [isVisible, filmImages.length, targetIndex, duration]);
 
-		const topTexts = ["WEDDING", "&#9654;  2025.10.11", "JUNGJAE ♥ JAEHEE"];
-		const bottomTexts = ["JUNGJAE ♥ JAEHEE", "WEDDING", "▶ 2025.10.11"];
+		const topTexts = (index: number) => {
+			if (index === 0) return "WEDDING";
+			if (index === 1)
+				return (
+					<span>
+						<span className={s.icon}>▶</span> 2025.10.11
+					</span>
+				);
+			return (
+				<span>
+					JUNGJAE <span className={s.icon}>♥</span> JAEHEE
+				</span>
+			);
+		};
+
+		const bottomTexts = (index: number) => {
+			if (index === 0)
+				return (
+					<span>
+						JUNGJAE <span className={s.icon}>♥</span> JAEHEE
+					</span>
+				);
+			if (index === 1)
+				return (
+					<span>
+						<span className={s.icon}>▶</span> 2025.10.11
+					</span>
+				);
+			return "WEDDING";
+		};
 
 		return (
 			<div className={classNames(s.film, className)} ref={filmRef}>
@@ -151,7 +179,7 @@ export const Film = forwardRef<HTMLDivElement, Props>(
 							className={s.imageItem}
 						>
 							<span className={s.topText}>
-								{topTexts[index % 3]}
+								{topTexts(index % 3)}
 							</span>
 							<img
 								className={s.image}
@@ -160,7 +188,7 @@ export const Film = forwardRef<HTMLDivElement, Props>(
 								alt={`film-${index}`}
 							/>
 							<span className={s.bottomText}>
-								{bottomTexts[index % 3]}
+								{bottomTexts(index % 3)}
 							</span>
 						</div>
 					))}

@@ -32,6 +32,10 @@
 
             .topText, .bottomText {
                 font-size: 7px;
+
+                .icon {
+                    font-family: 'Courier New', monospace;
+                }
             }
             
 
