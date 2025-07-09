@@ -5,6 +5,7 @@
     padding: 10px 0;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 
     .carousel {
         display: flex;
